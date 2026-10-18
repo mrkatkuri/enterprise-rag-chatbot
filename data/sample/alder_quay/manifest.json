@@ -1,0 +1,254 @@
+[
+  {
+    "document_id": "AQ-HR-001",
+    "title": "Leave and Absence Policy",
+    "owner": "People Operations",
+    "version": "2.1",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-002",
+      "AQ-HR-004",
+      "AQ-HR-005"
+    ],
+    "filename": "AQ-HR-001_leave_and_absence_policy.pdf",
+    "pages": 4,
+    "sha256": "ac578c6443d668a19681b398a940d4d1b12f5c760e4fb04b2decd774566f0ce4",
+    "section_headings": [
+      "Purpose and eligibility",
+      "Annual leave and booking",
+      "Carry-forward and exceptions",
+      "Sickness and support",
+      "Family, emergency and other leave",
+      "Records, worked example and controls"
+    ]
+  },
+  {
+    "document_id": "AQ-HR-002",
+    "title": "Benefits and Wellbeing Policy",
+    "owner": "Reward and People Operations",
+    "version": "1.3",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-001",
+      "AQ-HR-003"
+    ],
+    "filename": "AQ-HR-002_benefits_and_wellbeing_policy.pdf",
+    "pages": 4,
+    "sha256": "db82251b4ca307d20294e3469a3874e0ed3d4336a819600bfcb083df8f74131f",
+    "section_headings": [
+      "Scope and benefit status",
+      "Pension and protection",
+      "Health and wellbeing",
+      "Learning and equipment",
+      "Enrolment and changes",
+      "Governance and example"
+    ]
+  },
+  {
+    "document_id": "AQ-HR-003",
+    "title": "Travel, Expenses and Gifts Policy",
+    "owner": "Finance Operations",
+    "version": "3.0",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-002",
+      "AQ-HR-004",
+      "AQ-CMP-001"
+    ],
+    "filename": "AQ-HR-003_travel_expenses_and_gifts_policy.pdf",
+    "pages": 4,
+    "sha256": "0a8b0fedbf61c7396adbe0e7899317aecf61cda33bc2e1835bf3e0f28049f6ec",
+    "section_headings": [
+      "Purpose and general rules",
+      "Travel and accommodation",
+      "Meals and remote working",
+      "Claims and approvals",
+      "Gifts and hospitality",
+      "Monitoring and examples"
+    ]
+  },
+  {
+    "document_id": "AQ-HR-004",
+    "title": "Hybrid and Remote Working Policy",
+    "owner": "People Operations and IT Security",
+    "version": "2.0",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-002",
+      "AQ-HR-003",
+      "AQ-CMP-002"
+    ],
+    "filename": "AQ-HR-004_hybrid_and_remote_working_policy.pdf",
+    "pages": 4,
+    "sha256": "1ba4a4e13662fc318031804ee428cf048edf282716ffefa2aa7ec52e34f1eb20",
+    "section_headings": [
+      "Scope and standard arrangement",
+      "Approval and location",
+      "Security and client contact",
+      "Workstation and costs",
+      "Availability and disruption",
+      "Review and exceptions"
+    ]
+  },
+  {
+    "document_id": "AQ-HR-005",
+    "title": "Employee Handbook",
+    "owner": "Head of People",
+    "version": "4.2",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-001",
+      "AQ-HR-002",
+      "AQ-HR-003",
+      "AQ-HR-004",
+      "AQ-CMP-001",
+      "AQ-CMP-002",
+      "AQ-CMP-003",
+      "AQ-CMP-004"
+    ],
+    "filename": "AQ-HR-005_employee_handbook.pdf",
+    "pages": 4,
+    "sha256": "8befdb2a8b243bb5399fbc27f17961b47186665104e131dc02a5e3f6150e85eb",
+    "section_headings": [
+      "Company profile and document hierarchy",
+      "Joining and employment basics",
+      "Conduct, inclusion and conflicts",
+      "Speaking up and grievances",
+      "Performance and disciplinary process",
+      "Leaving, acknowledgements and contacts"
+    ]
+  },
+  {
+    "document_id": "AQ-CMP-001",
+    "title": "UK Financial Regulatory Compliance Manual",
+    "owner": "Chief Compliance Officer",
+    "version": "3.1",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-003",
+      "AQ-HR-005",
+      "AQ-CMP-002",
+      "AQ-CMP-003",
+      "AQ-CMP-004"
+    ],
+    "filename": "AQ-CMP-001_uk_financial_regulatory_compliance_manual.pdf",
+    "pages": 4,
+    "sha256": "35a3e761bc4b089df64b274a504e084ce2e56b2d29752eb90aab1b9ce2345074",
+    "section_headings": [
+      "Purpose, assumptions and limitations",
+      "Regulatory perimeter and accountability",
+      "Customer outcomes and advice controls",
+      "Financial crime, conflicts and promotions",
+      "Complaints, incidents and regulatory engagement",
+      "Monitoring, evidence and external context"
+    ]
+  },
+  {
+    "document_id": "AQ-CMP-002",
+    "title": "Information Security Manual",
+    "owner": "Chief Information Security Officer",
+    "version": "2.4",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-004",
+      "AQ-HR-005",
+      "AQ-CMP-003",
+      "AQ-CMP-004"
+    ],
+    "filename": "AQ-CMP-002_information_security_manual.pdf",
+    "pages": 4,
+    "sha256": "26cd67383ce5dfd976d8b0b8ee1369678555e6d0586d3c81522053a4bf868781",
+    "section_headings": [
+      "Scope and classification",
+      "Identity and access",
+      "Devices, transfer and approved AI",
+      "Patching, backups and suppliers",
+      "Incident handling",
+      "Evidence, exceptions and scenario"
+    ]
+  },
+  {
+    "document_id": "AQ-CMP-003",
+    "title": "UK GDPR and Data Protection Manual",
+    "owner": "Data Protection Officer",
+    "version": "2.2",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-HR-001",
+      "AQ-CMP-001",
+      "AQ-CMP-002",
+      "AQ-CMP-004"
+    ],
+    "filename": "AQ-CMP-003_uk_gdpr_and_data_protection_manual.pdf",
+    "pages": 4,
+    "sha256": "48a511a196ce14bc5c0a4a14c9aebbb4f7ba77e3f949487cb3b12674569afd06",
+    "section_headings": [
+      "Scope and legal context",
+      "Lawful processing and transparency",
+      "Rights requests and data sharing",
+      "Personal data breach assessment",
+      "Synthetic retention schedule and holds",
+      "Accountability, scenario and source"
+    ]
+  },
+  {
+    "document_id": "AQ-CMP-004",
+    "title": "Internal Audit Charter and Procedures",
+    "owner": "Head of Internal Audit",
+    "version": "1.5",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "status": "Current - synthetic",
+    "classification": "Internal - synthetic test data",
+    "approver": "Fictional Board Policy Committee",
+    "related": [
+      "AQ-CMP-001",
+      "AQ-CMP-002",
+      "AQ-CMP-003",
+      "AQ-HR-005"
+    ],
+    "filename": "AQ-CMP-004_internal_audit_charter_and_procedures.pdf",
+    "pages": 4,
+    "sha256": "e5cf4b4ceec7249d68b54cfb6f3434d3507759cab0b1cddacc104bbac0e1ef86",
+    "section_headings": [
+      "Mandate and independence",
+      "Risk-based planning",
+      "Engagement and fieldwork",
+      "Findings and reporting",
+      "Remediation and escalation",
+      "Quality, records and worked example"
+    ]
+  }
+]

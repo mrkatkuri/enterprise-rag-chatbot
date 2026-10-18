@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Local document uploads (sample fixtures may be committed)
+data/uploads/
+data/index/
+data/feedback/
+data/evaluations/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1580" viewBox="0 0 1400 1580" role="img" aria-labelledby="title description">
+<title id="title">Enterprise RAG Chatbot Architecture</title>
+<desc id="description">Document ingestion creates Pinecone vectors and a local corpus snapshot. LangGraph resolves conversation questions, combines dense search and BM25, reranks evidence, generates claims, validates citations, and returns an answer or abstention. Evaluation stores answers and retrieved context for faithfulness review.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/></marker></defs>
+<style>text{font-family:Arial,sans-serif;fill:#172033} .heading{font-size:24px;font-weight:bold}.label{font-size:16px;font-weight:bold}.detail{font-size:14px}.edge{fill:none;stroke:#475569;stroke-width:2;marker-end:url(#arrow)}.dashed{stroke-dasharray:7 5}.edge-label{font-size:13px;paint-order:stroke;stroke:white;stroke-width:5px;stroke-linejoin:round}</style>
+<rect width="1400" height="1580" fill="white"/>
+<text x="40" y="44" class="heading">Enterprise RAG Chatbot — Implemented Architecture</text>
+<rect x="30" y="80" width="1340" height="340" rx="14" fill="#f8fafc" stroke="#cbd5e1"/><text x="50" y="112" class="label">1. Manual document ingestion — CLI or Streamlit rebuild</text>
+<rect x="60" y="145" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="165.0" y="182.0" text-anchor="middle" class="label">PDFs + manifest</text>
+<text x="165.0" y="202.0" text-anchor="middle" class="detail">Local files / uploads</text>
+<rect x="320" y="145" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="425.0" y="182.0" text-anchor="middle" class="label">LlamaIndex loader</text>
+<text x="425.0" y="202.0" text-anchor="middle" class="detail">Page text + metadata</text>
+<rect x="580" y="145" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="685.0" y="172.0" text-anchor="middle" class="label">Validate and clean</text>
+<text x="685.0" y="192.0" text-anchor="middle" class="detail">Checksums / empty pages</text>
+<text x="685.0" y="212.0" text-anchor="middle" class="detail">Remove known boilerplate</text>
+<rect x="840" y="145" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="945.0" y="172.0" text-anchor="middle" class="label">Section-aware chunks</text>
+<text x="945.0" y="192.0" text-anchor="middle" class="detail">512-token cap</text>
+<text x="945.0" y="212.0" text-anchor="middle" class="detail">50-token overlap</text>
+<rect x="1100" y="145" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="1205.0" y="172.0" text-anchor="middle" class="label">OpenAI embeddings</text>
+<text x="1205.0" y="192.0" text-anchor="middle" class="detail">text-embedding-3-small</text>
+<text x="1205.0" y="212.0" text-anchor="middle" class="detail">1,536 dimensions</text>
+<rect x="840" y="305" width="210" height="84" rx="10" fill="#ecfdf5" stroke="#94a3b8"/>
+<text x="945.0" y="342.0" text-anchor="middle" class="label">Local corpus snapshot</text>
+<text x="945.0" y="362.0" text-anchor="middle" class="detail">Text + IDs + metadata</text>
+<rect x="1100" y="305" width="210" height="84" rx="10" fill="#ecfdf5" stroke="#94a3b8"/>
+<text x="1205.0" y="342.0" text-anchor="middle" class="label">Pinecone index</text>
+<text x="1205.0" y="362.0" text-anchor="middle" class="detail">Dense vectors + metadata</text>
+<path d="M 270 187 L 320 187" class="edge"/>
+<path d="M 530 187 L 580 187" class="edge"/>
+<path d="M 790 187 L 840 187" class="edge"/>
+<path d="M 1050 187 L 1100 187" class="edge"/>
+<path d="M 945 229 L 945 305" class="edge"/>
+<path d="M 1205 229 L 1205 305" class="edge"/>
+<rect x="30" y="450" width="1340" height="850" rx="14" fill="#f8fafc" stroke="#cbd5e1"/><text x="50" y="482" class="label">2. LangGraph conversation workflow</text>
+<rect x="60" y="535" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="165.0" y="572.0" text-anchor="middle" class="label">Employee question</text>
+<text x="165.0" y="592.0" text-anchor="middle" class="detail">Streamlit chat / CLI</text>
+<rect x="340" y="535" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="445.0" y="572.0" text-anchor="middle" class="label">Resolve follow-up</text>
+<text x="445.0" y="592.0" text-anchor="middle" class="detail">LangChain + chat model</text>
+<rect x="800" y="535" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="905.0" y="572.0" text-anchor="middle" class="label">Embed question</text>
+<text x="905.0" y="592.0" text-anchor="middle" class="detail">Same embedding model</text>
+<rect x="1100" y="535" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="1205.0" y="572.0" text-anchor="middle" class="label">Dense cosine search</text>
+<text x="1205.0" y="592.0" text-anchor="middle" class="detail">Pinecone · Top 20</text>
+<rect x="800" y="705" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="905.0" y="742.0" text-anchor="middle" class="label">Local BM25 search</text>
+<text x="905.0" y="762.0" text-anchor="middle" class="detail">Same corpus · Top 20</text>
+<rect x="1100" y="705" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="1205.0" y="742.0" text-anchor="middle" class="label">Reciprocal rank fusion</text>
+<text x="1205.0" y="762.0" text-anchor="middle" class="detail">Merge + deduplicate</text>
+<rect x="1100" y="855" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="1205.0" y="882.0" text-anchor="middle" class="label">Optional reranking</text>
+<text x="1205.0" y="902.0" text-anchor="middle" class="detail">bge-reranker-v2-m3</text>
+<text x="1205.0" y="922.0" text-anchor="middle" class="detail">Top 6 results</text>
+<rect x="800" y="855" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="905.0" y="892.0" text-anchor="middle" class="label">Evidence check</text>
+<text x="905.0" y="912.0" text-anchor="middle" class="detail">Any results returned?</text>
+<rect x="500" y="855" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="605.0" y="892.0" text-anchor="middle" class="label">Grounded generation</text>
+<text x="605.0" y="912.0" text-anchor="middle" class="detail">Claims + evidence IDs</text>
+<rect x="500" y="1025" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="605.0" y="1052.0" text-anchor="middle" class="label">Validate evidence IDs</text>
+<text x="605.0" y="1072.0" text-anchor="middle" class="detail">Build exact source quotes</text>
+<text x="605.0" y="1092.0" text-anchor="middle" class="detail">and citation metadata</text>
+<rect x="800" y="1025" width="210" height="84" rx="10" fill="#fff7ed" stroke="#94a3b8"/>
+<text x="905.0" y="1062.0" text-anchor="middle" class="label">Insufficient / refused</text>
+<text x="905.0" y="1082.0" text-anchor="middle" class="detail">Explicit response</text>
+<rect x="500" y="1175" width="210" height="84" rx="10" fill="#fff7ed" stroke="#94a3b8"/>
+<text x="605.0" y="1212.0" text-anchor="middle" class="label">Citation failure</text>
+<text x="605.0" y="1232.0" text-anchor="middle" class="detail">Reject invalid references</text>
+<rect x="800" y="1175" width="210" height="84" rx="10" fill="#ecfdf5" stroke="#94a3b8"/>
+<text x="905.0" y="1212.0" text-anchor="middle" class="label">Response to employee</text>
+<text x="905.0" y="1232.0" text-anchor="middle" class="detail">Answer + source citations</text>
+<rect x="60" y="805" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="165.0" y="832.0" text-anchor="middle" class="label">Session checkpoints</text>
+<text x="165.0" y="852.0" text-anchor="middle" class="detail">In-memory history</text>
+<text x="165.0" y="872.0" text-anchor="middle" class="detail">Recent conversation turns</text>
+<path d="M 270 577 L 340 577" class="edge"/>
+<path d="M 550 577 L 800 577" class="edge"/>
+<path d="M 1010 577 L 1100 577" class="edge"/>
+<path d="M 1205 389 L 1205 535" class="edge"/>
+<path d="M 945 389 L 945 470 L 1055 470 L 1055 660 L 905 660 L 905 705" class="edge"/>
+<path d="M 550 600 L 680 600 L 680 747 L 800 747" class="edge"/>
+<path d="M 1010 747 L 1100 747" class="edge"/>
+<path d="M 1205 619 L 1205 705" class="edge"/>
+<path d="M 1205 789 L 1205 855" class="edge"/>
+<path d="M 1100 897 L 1010 897" class="edge"/>
+<path d="M 800 897 L 710 897" class="edge"/>
+<text x="745" y="886" class="edge-label">Yes</text>
+<path d="M 905 939 L 905 1025" class="edge"/>
+<text x="915" y="985" class="edge-label">No</text>
+<path d="M 605 939 L 605 1025" class="edge"/>
+<text x="615" y="990" class="edge-label">Answered</text>
+<path d="M 710 915 L 755 915 L 755 1067 L 800 1067" class="edge"/>
+<text x="760" y="1010" class="edge-label">Abstain / refuse</text>
+<path d="M 710 1067 L 745 1067 L 745 1217 L 800 1217" class="edge"/>
+<text x="750" y="1150" class="edge-label">Valid</text>
+<path d="M 605 1109 L 605 1175" class="edge"/>
+<text x="615" y="1145" class="edge-label">Invalid</text>
+<path d="M 710 1217 L 800 1217" class="edge"/>
+<path d="M 905 1109 L 905 1175" class="edge"/>
+<path d="M 800 1250 L 165 1250 L 165 889" class="edge dashed"/>
+<text x="275" y="1240" class="edge-label">Record completed turn</text>
+<path d="M 165 805 L 165 680 L 445 680 L 445 619" class="edge dashed"/>
+<text x="205" y="670" class="edge-label">History for references only</text>
+<text x="60" y="1280" class="detail">API / parsing failures surface as errors. Conversation checkpoints are process-local, not durable storage.</text>
+<rect x="30" y="1330" width="1340" height="175" rx="14" fill="#f8fafc" stroke="#cbd5e1"/><text x="50" y="1362" class="label">3. Evaluation and evidence audit</text>
+<rect x="60" y="1390" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="165.0" y="1417.0" text-anchor="middle" class="label">20 benchmark questions</text>
+<text x="165.0" y="1437.0" text-anchor="middle" class="detail">Answer key excluded</text>
+<text x="165.0" y="1457.0" text-anchor="middle" class="detail">from retrieval corpus</text>
+<rect x="380" y="1390" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="485.0" y="1427.0" text-anchor="middle" class="label">Evaluation runners</text>
+<text x="485.0" y="1447.0" text-anchor="middle" class="detail">Fresh session per case</text>
+<rect x="700" y="1390" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="805.0" y="1417.0" text-anchor="middle" class="label">Saved run results</text>
+<text x="805.0" y="1437.0" text-anchor="middle" class="detail">Answers + retrieved context</text>
+<text x="805.0" y="1457.0" text-anchor="middle" class="detail">Latency + token usage</text>
+<rect x="1020" y="1390" width="210" height="84" rx="10" fill="#eff6ff" stroke="#94a3b8"/>
+<text x="1125.0" y="1417.0" text-anchor="middle" class="label">Faithfulness audit</text>
+<text x="1125.0" y="1437.0" text-anchor="middle" class="detail">Check claims against</text>
+<text x="1125.0" y="1457.0" text-anchor="middle" class="detail">retrieved evidence</text>
+<path d="M 270 1432 L 380 1432" class="edge"/>
+<path d="M 590 1432 L 700 1432" class="edge"/>
+<path d="M 910 1432 L 1020 1432" class="edge"/>
+<path d="M 800 1259 L 800 1320 L 805 1320 L 805 1390" class="edge dashed"/>
+<text x="820" y="1320" class="edge-label">Saved answers</text>
+<text x="40" y="1540" class="detail">Authentication, durable conversation storage, and production deployment remain future work.</text></svg>
